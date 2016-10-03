@@ -12,7 +12,7 @@ setlocal iskeyword+=-
 
 syn match interfacesComment /^#.*$/ contains=interfacesComment
 syn keyword interfacesOpta address gateway netmask broadcast metric pointopoint media hwadress mtu hostname leasehours leasetime vendor client bootfile server hwaddr provider frame netnum endpoint local ttl network
-syn keyword interfacesSpec mapping iface script auto allow-hotplug up down pre-up post-down map contained
+syn keyword interfacesSpec mapping iface script auto allow-hotplug up down post-up post-down pre-up pre-down map contained
 syn keyword interfacesOptb inet inet6 static dhcp loopback bootp ppp wvdial v4tunnel manual
 "verify xxx.xxx.xxx.xxx && xxx.xxx.xxx.xxx/xx
 "IP addresses
@@ -22,7 +22,7 @@ syn match interfacesMAC /\(\x\x\:\)\{5}\x\x/
 syn match interfacesIface /iface\s\+\S\+\s/ contains=interfacesSpec
 syn match interfacesArgz /\(allow-hotplug\|mapping\|auto\)\+.*/ contains=interfacesSpec
 " All related to scripts
-syn match interfacesScript /\(script\|pre-up\|up\|down\|post-down\)\s\+.*/ contains=interfacesMAC,interfacesIP,interfacesSpec
+syn match interfacesScript /\(script\|post-up\|pre-down\|pre-up\|up\|down\|post-down\)\s\+.*/ contains=interfacesMAC,interfacesIP,interfacesSpec
 syn match interfacesMap /map\s.*\s\S\+$/ contains=interfacesSpec,interfacesMAC,interfacesIP
 
 hi link interfacesComment Comment
